@@ -1,0 +1,102 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#WRAP {
+  width: 100%;
+  min-height: 100vh;
+}
+.inner {
+  padding-top: 60px;
+  background-color: #f4faff;
+}
+.content {
+  max-width: 420px;
+  height: 500px;
+  padding: 40px;
+  margin: 0 auto 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 5%), 0 0 14px 6px rgb(0 0 0 / 3%);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+#HEADER {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.add_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.add_list input {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 40px);
+  height: 35px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: 1px solid #959595;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+.btn_add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  text-indent: -9999px;
+  background-color: #333;
+  background-image: url(../images/ico_add.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+.list_group {
+  margin-top: 10px;
+}
+.list_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.list_item:last-child {
+  margin-bottom: 0;
+}
+.item_left {
+  display: flex;
+  align-items: center;
+}
+.item_content {
+  margin-left: 7px;
+}
+.item_buttons {
+  display: flex;
+  align-items: center;
+}
+.item_buttons button {
+  display: block;
+  width: 24px;
+  height: 24px;
+  text-indent: -9999px;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+.btn_delete {
+  background-image: url(../images/ico_delete.png);
+}
+.btn_edit {
+  background-image: url(../images/ico_edit.png);
+  margin-right: 3px;
+}
