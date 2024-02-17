@@ -1,5 +1,5 @@
 <template>
-  <base-layout>
+  <base-layout :items="items">
     <TodoInput @add="addItem"></TodoInput>
     <TodoList
       :items="items"
@@ -7,6 +7,9 @@
       @updateItem="updateItem"
       @removeItem="removeItem"
     ></TodoList>
+    <div>
+      {{ items.length }}
+    </div>
   </base-layout>
 </template>
 

@@ -4,7 +4,6 @@
       <todo-header></todo-header>
       <slot></slot>
     </div>
-    
     <todo-footer></todo-footer>
   </div>
 </template>
