@@ -1,10 +1,13 @@
 <template>
   <div class="inner">
     <div class="content">
-      <todo-header></todo-header>
+      <todoHeader
+        :totalItems="totalItems"
+        :checkedItems="checkedItems"
+      ></todoHeader>
       <slot></slot>
     </div>
-    <todo-footer></todo-footer>
+    <todoFooter></todoFooter>
   </div>
 </template>
 
@@ -13,9 +16,23 @@ import MyHeader from './MyHeader.vue'
 import MyFooter from './MyFooter.vue' 
 
 export default {
+  props: {
+    items: {
+      type: Array,
+      default: () => []
+    }
+  },
   components: { 
-    'TodoHeader': MyHeader,
-    'TodoFooter': MyFooter
+    'todoHeader': MyHeader,
+    'todoFooter': MyFooter
+  },
+  computed: {
+    totalItems() {
+      return this.items.length;
+    },
+    checkedItems() {
+      return this.items.filter(item => item.complete).length;
+    }
   }
 }
 </script>

@@ -8,7 +8,6 @@
       @removeItem="removeItem"
     ></TodoList>
     <div>
-      {{ items.length }}
     </div>
   </base-layout>
 </template>

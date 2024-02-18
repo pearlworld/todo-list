@@ -100,3 +100,34 @@
   background-image: url(../images/ico_edit.png);
   margin-right: 3px;
 }
+
+/* 체크박스 */
+.checkbox {
+  display: none;
+}
+.checkbox+label {
+  cursor: pointer;
+}
+.checkbox+label>span {
+  vertical-align: middle;
+}
+.checkbox+label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.checkbox:checked+label::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #333;
+  border-color: #333;
+  background-image: url(../images/ico_checked.png);
+  background-size: 16px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

@@ -18,9 +18,8 @@
     <template v-else>
       <div class="item_left">
         <TodoCheckBox 
-          :class="{ 'checked': item.complete }"
-          :checked="item.complete"
           :item="item"
+          :checked="item.complete"
           @updateState="toggleComplete"
         ></TodoCheckBox>
         <div 
@@ -65,16 +64,14 @@ export default {
     item: Object,
   },
   methods: {
-    hover(id) {
+    hover(id) { // 마우스오버시
       this.currentId = id;
     },
     focusOut() {
       this.currentId = null;
     },
     toggleComplete() {
-      if (this.item) {
-        this.$emit('updateState', this.item.id);
-      }
+      this.$emit('updateState', this.item.id, this.complete);
     },
     editItem(item) {
       this.editing = item;

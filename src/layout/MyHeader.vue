@@ -2,12 +2,22 @@
   <header id="HEADER">
     <h2 class="head_today">{{ today }}</h2>
     <p class="head_week">{{ todayWeek }}</p>
-    <span class="head_count">잔여 리스트 개수</span>
+    <span class="head_count">완료된 리스트 : {{ checkedItems }} / {{ totalItems }}</span>
   </header>
 </template>
 
 <script>
 export default {
+  props: {
+    totalItems: {
+      type: Number,
+      required: true
+    },
+    checkedItems: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
       today: '',

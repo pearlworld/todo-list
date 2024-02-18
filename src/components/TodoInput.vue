@@ -19,7 +19,6 @@ export default {
     }
   },
   methods: {
-    
     addItem() {
       if (this.newItem.trim() !== "") {
         localStorage.setItem(this.newItem, this.newItem);
