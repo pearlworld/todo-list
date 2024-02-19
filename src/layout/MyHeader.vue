@@ -1,8 +1,7 @@
 <template>
   <header id="HEADER">
-    <h2 class="head_today">{{ today }}</h2>
-    <p class="head_week">{{ todayWeek }}</p>
-    <span class="head_count">완료된 리스트 : {{ checkedItems }} / {{ totalItems }}</span>
+    <h1 class="head_title">TODO</h1>
+    <p class="head_today">{{ today }} <span class="head_week">{{ todayWeek }}</span></p>
   </header>
 </template>
 
@@ -44,15 +43,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.head_today {
-  color: #4c4c4c;
-  font-weight: 900;
-}
-.head_week {
-  margin-top: 7px;
-  font-size: 16px;
-  color: #676767;
-}
-</style>

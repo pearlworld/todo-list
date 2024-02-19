@@ -1,12 +1,8 @@
 <template>
   <div class="inner">
-    <div class="content">
-      <todoHeader
-        :totalItems="totalItems"
-        :checkedItems="checkedItems"
-      ></todoHeader>
+    <div class="background"></div>
+    <todoHeader></todoHeader>
       <slot></slot>
-    </div>
     <todoFooter></todoFooter>
   </div>
 </template>
@@ -26,13 +22,6 @@ export default {
     'todoHeader': MyHeader,
     'todoFooter': MyFooter
   },
-  computed: {
-    totalItems() {
-      return this.items.length;
-    },
-    checkedItems() {
-      return this.items.filter(item => item.complete).length;
-    }
-  }
+
 }
 </script>

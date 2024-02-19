@@ -1,12 +1,16 @@
 <template>
   <base-layout :items="items">
     <TodoInput @add="addNewItem"></TodoInput>
-    <TodoList
-      :items="items"
-      @updateState="updateState"
-      @updateItem="updateItem"
-      @removeItem="removeItem"
-    ></TodoList>
+    <div class="content">
+      <p class="list_count">오늘 할 일 {{ totalItems }}개 중 {{ checkedItems }}개 완료 ! </p>
+      <TodoList
+        :items="items"
+        @updateState="updateState"
+        @updateItem="updateItem"
+        @removeItem="removeItem"
+      ></TodoList>
+    </div>
+    
     <div>
     </div>
   </base-layout>
@@ -64,6 +68,14 @@ export default {
       this.items = this.items.filter((item) => item.id !== id);
       this.updateLocalStorage();
     },
+  },  
+  computed: {
+    totalItems() {
+      return this.items.length;
+    },
+    checkedItems() {
+      return this.items.filter(item => item.complete).length;
+    }
   }
 }
 </script>
