@@ -5,6 +5,7 @@
       class="checkbox"
       :id="'checkbox_' + (item.id || uniqueId)"
       :value="item.id"
+      :checked="item.complete"
       @change="updateState(item.id)">
     <label :for="'checkbox_' + (item.id || uniqueId)"><span></span></label>
   </div>

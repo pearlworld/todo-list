@@ -3,16 +3,19 @@
     @mouseleave="focusOut">
     <!-- 편집모드 시 -->
     <template v-if="edit">
-      <input
-        type="text"
-        v-model="editing.content"
-        @keypress.enter="updateText()"
-      />
-      <button 
-        class="btn-edit-done" 
-        @click="updateText()">
-        수정
-      </button>
+      <div class="editmode">
+        <input
+          type="text"
+          class="edit--input"
+          v-model="editing.content"
+          @keypress.enter="updateText()"
+        />
+        <button 
+          class="btn_edit" 
+          @click="updateText()">
+          수정
+        </button>
+      </div>
     </template>
     <!-- 기본값 -->
     <template v-else>
@@ -24,7 +27,7 @@
         ></TodoCheckBox>
         <div 
           class="item_content" 
-          @mouseover="hover(item.id)">
+          @mouseover="hover($event, item.id)">
           {{ item.content }}
         </div>
       </div>
@@ -61,10 +64,13 @@ export default {
     }
   },
   props: {
-    item: Object,
+    item: {
+      type: Object,
+      required: true
+    }
   },
   methods: {
-    hover(id) { // 마우스오버시
+    hover(id) {
       this.currentId = id;
     },
     focusOut() {

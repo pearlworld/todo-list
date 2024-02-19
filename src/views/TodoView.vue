@@ -1,6 +1,6 @@
 <template>
   <base-layout :items="items">
-    <TodoInput @add="addItem"></TodoInput>
+    <TodoInput @add="addNewItem"></TodoInput>
     <TodoList
       :items="items"
       @updateState="updateState"
@@ -32,13 +32,11 @@ export default {
     this.loadItemsFromLocalStorage();
   },
   methods: {
-    addItem(newItem) {
-      this.items.push({
-        content: newItem,
-        complete: false
-      });
+    addNewItem(content) {
+      this.items.push({ id: this.items.length, content });
       this.updateLocalStorage();
     },
+
     loadItemsFromLocalStorage() {
       const storedItems = localStorage.getItem('items');
       if (storedItems) {
@@ -60,9 +58,11 @@ export default {
       if (index) {
         this.items[index].content = content;
       }
+      this.updateLocalStorage();
     },
     removeItem(id) {
       this.items = this.items.filter((item) => item.id !== id);
+      this.updateLocalStorage();
     },
   }
 }

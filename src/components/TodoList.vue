@@ -1,9 +1,9 @@
 <template>
   <div class="list_group">
     <TodoItem
-      v-for="item in items"
-      :key="item.id"
-      :item="item"
+      v-for="(item, id) in items"
+        :key="id"
+        :item="item"
       @updateState="updateTodoState"
       @updateItem="updateTodoItem"
       @removeItem="removeTodoItem"
@@ -20,6 +20,7 @@ export default {
   props: {
     items: {
       type: Array,
+      required: true
     }
   },
   methods: {

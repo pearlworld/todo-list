@@ -93,10 +93,10 @@
   background-position: center;
   background-size: 70%;
 }
-.btn_delete {
+.item_buttons .btn_delete {
   background-image: url(../images/ico_delete.png);
 }
-.btn_edit {
+.item_buttons .btn_edit {
   background-image: url(../images/ico_edit.png);
   margin-right: 3px;
 }
@@ -130,4 +130,36 @@
   background-size: 16px;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+/* 편집모드시 */
+.editmode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.editmode .edit--input {
+  width: calc(100% - 55px);
+  height: 24px;
+  padding: 0 5px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-color: #f4faff;
+  box-sizing: border-box;
+}
+.editmode .edit--input:focus {
+  outline: none;
+}
+.editmode .btn_edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 24px;
+  border-radius: 3px;
+  border-color: #4b4b4b;
+  background-color: #4b4b4b;
+  font-size: 14px;
+  color: #fff;
 }
