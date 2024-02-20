@@ -1,11 +1,15 @@
 <template>
   <div class="list_item"
-    @mouseleave="focusOut">
+    @mouseenter="isTouchDevice ? '' : hover($event, item.id)"
+    @mouseleave="isTouchDevice ? '' : focusOut"
+    @touchstart="_touchStart"
+    @touchend="_touchEnd($event, item.id)">
     <!-- 편집모드 시 -->
     <template v-if="edit">
       <div class="editmode">
         <input
           type="text"
+          maxlength='17'
           class="edit--input"
           v-model="editing.content"
           @keypress.enter="updateText()"
@@ -27,7 +31,7 @@
         ></TodoCheckBox>
         <div 
           class="item_content" 
-          @mouseover="hover($event, item.id)">
+          @mouseenter="isTouchDevice ? '' : hover($event, item.id)">
           {{ item.content }}
         </div>
       </div>
@@ -61,6 +65,7 @@ export default {
       edit: false,
       editing: {},
       currentId: null,
+      isTouchDevice: false
     }
   },
   props: {
@@ -70,11 +75,22 @@ export default {
     }
   },
   methods: {
-    hover(id) {
+    // 포커스 이벤트
+    hover(e,id) {
       this.currentId = id;
     },
     focusOut() {
       this.currentId = null;
+    },
+    // 터치 이벤트
+    _touchStart(e) {
+      this.prevPosX = e.changedTouches[0].clientX;
+    },
+    _touchEnd(e, id) {
+      const posX = e.changedTouches[0].clientX;
+      if (this.prevPosX > posX) {
+        this.currentId = id;
+      }
     },
     toggleComplete() {
       this.$emit('updateState', this.item.id, this.complete);

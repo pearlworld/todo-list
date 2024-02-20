@@ -7,16 +7,6 @@
 
 <script>
 export default {
-  props: {
-    totalItems: {
-      type: Number,
-      required: true
-    },
-    checkedItems: {
-      type: Number,
-      required: true
-    }
-  },
   data() {
     return {
       today: '',

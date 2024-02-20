@@ -2,8 +2,8 @@
   <div class="list_group">
     <TodoItem
       v-for="(item, id) in items"
-        :key="id"
-        :item="item"
+      :key="id"
+      :item="item"
       @updateState="updateTodoState"
       @updateItem="updateTodoItem"
       @removeItem="removeTodoItem"

@@ -1,7 +1,8 @@
 <template>
   <div class="add_list">
     <input 
-      type="text" 
+      type="text"
+      maxlength='17'
       v-model="newItem" 
       @keyup.enter="addItem">
     <button
