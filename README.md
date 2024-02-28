@@ -21,3 +21,4 @@ https://todo-list-pearlworld.vercel.app/
 
 ## 🚀 업데이트
 - 리스트가 0개일 때 데이터 처리(예정)
+- editMode시 input focus on 처리(예정)
